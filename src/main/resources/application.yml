@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:./kreikefy;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
+    url: jdbc:h2:./kreikekfy;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
   sql:
     init:
       mode: never
@@ -21,4 +21,4 @@ spring:
 
 server:
   servlet:
-    context-path: /kreikefy
+    context-path: /kreitekfy

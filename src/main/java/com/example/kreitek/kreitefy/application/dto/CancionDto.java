@@ -1,37 +1,21 @@
-package com.example.kreitek.kreitefy.domain.entity;
+package com.example.kreitek.kreitefy.application.dto;
 
+import com.example.kreitek.kreitefy.domain.entity.Album;
 import com.example.kreitek.kreitefy.domain.type.Estilo;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Positive;
+
 
 import java.util.Date;
 
-@Entity
-@Table(name = "canciones")
-public class Cancion {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CancionDto {
     private Long id;
-
-    @Column(name = "nombre", nullable = false, length = 255)
     private String nombre;
-
-    @Column(nullable = false)
-    @Positive
     private Double duracion;
-    @Enumerated(EnumType.STRING)
     private Estilo estilo;
-    @Column(nullable = false)
-    @Positive
     private Double valoracion;
-    @Column(nullable = false)
-    @Positive
     private Double reproducciones;
-    @Column(name = "fecha_insercion", nullable = false)
     private Date fechaInsercion;
-    @ManyToOne
-    @JoinColumn(name = "album_id")
-    private Album album;
+    private Long albumId;
+    private String albumTitulo;
 
     public Long getId() {
         return id;
@@ -65,14 +49,6 @@ public class Cancion {
         this.estilo = estilo;
     }
 
-    public Album getAlbum() {
-        return album;
-    }
-
-    public void setAlbum(Album album) {
-        this.album = album;
-    }
-
     public Double getValoracion() {
         return valoracion;
     }
@@ -95,5 +71,21 @@ public class Cancion {
 
     public void setFechaInsercion(Date fechaInsercion) {
         this.fechaInsercion = fechaInsercion;
+    }
+
+    public Long getAlbumId() {
+        return albumId;
+    }
+
+    public void setAlbumId(Long albumId) {
+        this.albumId = albumId;
+    }
+
+    public String getAlbumTitulo() {
+        return albumTitulo;
+    }
+
+    public void setAlbumTitulo(String albumTitulo) {
+        this.albumTitulo = albumTitulo;
     }
 }

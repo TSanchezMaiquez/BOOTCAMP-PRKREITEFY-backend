@@ -12,7 +12,7 @@ public class Album {
     private String titulo;
 
     @ManyToOne
-    @JoinColumn(name = "artista_id")
+    @JoinColumn(name = "artista_id", nullable = false)
     private Artista artista;
 
     @Lob
@@ -48,5 +48,6 @@ public class Album {
     public void setImagen(byte[] imagen) {
         this.imagen = imagen;
     }
+
 }
 
