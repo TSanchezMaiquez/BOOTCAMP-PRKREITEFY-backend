@@ -4,6 +4,9 @@ import com.example.kreitek.kreitefy.application.dto.UsuarioDto;
 import com.example.kreitek.kreitefy.domain.entity.Usuario;
 import org.mapstruct.Mapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface UsuarioMapper extends EntityMapper<UsuarioDto, Usuario>{
     default Usuario fromId(String nombreDeUsuario) {
@@ -14,4 +17,5 @@ public interface UsuarioMapper extends EntityMapper<UsuarioDto, Usuario>{
         usuario.setNombreDeUsuario(nombreDeUsuario);
         return usuario;
     }
+
 }

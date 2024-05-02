@@ -1,23 +1,23 @@
 package com.example.kreitek.kreitefy.application.dto;
 
 public class LoginDto {
-    private String nombreDeUsuario;
+    private String username;
     private String password;
 
     public LoginDto() {
     }
 
-    public LoginDto(String nombreDeUsuario, String password) {
-        this.nombreDeUsuario = nombreDeUsuario;
+    public LoginDto(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 
     public String getUsername() {
-        return nombreDeUsuario;
+        return username;
     }
 
     public void setUsername(String nombreDeUsuario) {
-        this.nombreDeUsuario = nombreDeUsuario;
+        this.username = nombreDeUsuario;
     }
 
     public String getPassword() {

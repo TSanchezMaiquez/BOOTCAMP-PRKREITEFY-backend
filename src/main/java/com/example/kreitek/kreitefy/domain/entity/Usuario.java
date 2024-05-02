@@ -1,5 +1,6 @@
 package com.example.kreitek.kreitefy.domain.entity;
 
+import com.example.kreitek.kreitefy.domain.type.Role;
 import jakarta.persistence.*;
 
 @Entity

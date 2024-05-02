@@ -2,7 +2,7 @@ package com.example.kreitek.kreitefy.infraestructure.rest.auth;
 
 
 import com.example.kreitek.kreitefy.application.dto.UsuarioDto;
-import com.example.kreitek.kreitefy.domain.entity.Role;
+import com.example.kreitek.kreitefy.domain.type.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
