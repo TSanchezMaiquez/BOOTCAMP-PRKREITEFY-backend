@@ -3,6 +3,7 @@ package com.example.kreitek.kreitefy.application.service.impl;
 import com.example.kreitek.kreitefy.application.dto.UsuarioDto;
 import com.example.kreitek.kreitefy.application.mapper.UsuarioMapper;
 import com.example.kreitek.kreitefy.application.service.UsuarioService;
+import com.example.kreitek.kreitefy.domain.entity.Usuario;
 import com.example.kreitek.kreitefy.domain.persistencia.UsuarioPersistence;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,4 +25,6 @@ public class UsuarioServiceImpl implements UsuarioService {
     public Optional<UsuarioDto> obtenerUsuarioPorId(String id) {
         return usuarioPersistence.obtenerUsuarioPorId(id).map(usuarioMapper::toDto);
     }
+
+
 }

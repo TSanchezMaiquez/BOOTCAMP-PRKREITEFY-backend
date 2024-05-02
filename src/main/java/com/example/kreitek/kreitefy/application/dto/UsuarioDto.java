@@ -1,12 +1,24 @@
 package com.example.kreitek.kreitefy.application.dto;
 
+import com.example.kreitek.kreitefy.domain.entity.Role;
+
 public class UsuarioDto {
 
 
     private String nombreDeUsuario;
-    private String contraseña;
+    private String password;
     private String apellidos;
     private String email;
+    protected Role role;
+    public UsuarioDto() {
+    }
+
+    public UsuarioDto(String nombreDeUsuario, String password, String apellidos, String email) {
+        this.nombreDeUsuario = nombreDeUsuario;
+        this.password = password;
+        this.apellidos = apellidos;
+        this.email = email;
+    }
 
     public String getNombreDeUsuario() {
         return nombreDeUsuario;
@@ -16,12 +28,12 @@ public class UsuarioDto {
         this.nombreDeUsuario = nombreDeUsuario;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getApellidos() {
@@ -38,5 +50,13 @@ public class UsuarioDto {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

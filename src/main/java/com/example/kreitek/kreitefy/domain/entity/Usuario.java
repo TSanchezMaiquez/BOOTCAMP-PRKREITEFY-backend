@@ -2,19 +2,19 @@ package com.example.kreitek.kreitefy.domain.entity;
 
 import jakarta.persistence.*;
 
-import java.util.Set;
-
 @Entity
 public class Usuario {
 
     @Id
     private String nombreDeUsuario;
     @Column(length =255, nullable = false)
-    private String contraseña;
+    private String password;
     @Column(length =100, nullable = false)
     private String apellidos;
     @Column(length =100, nullable = false)
     private String email;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     public String getNombreDeUsuario() {
         return nombreDeUsuario;
@@ -24,12 +24,12 @@ public class Usuario {
         this.nombreDeUsuario = nombreDeUsuario;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getApellidos() {
@@ -46,5 +46,13 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
