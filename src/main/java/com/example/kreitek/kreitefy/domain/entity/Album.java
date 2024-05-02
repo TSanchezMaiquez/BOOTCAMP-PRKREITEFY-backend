@@ -11,9 +11,6 @@ public class Album {
     @Column(name = "titulo", nullable = false, length = 255)
     private String titulo;
 
-    @ManyToOne
-    @JoinColumn(name = "artista_id", nullable = false)
-    private Artista artista;
 
     @Lob
     private byte[] imagen;
@@ -31,14 +28,6 @@ public class Album {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
-    }
-
-    public Artista getArtista() {
-        return artista;
-    }
-
-    public void setArtista(Artista artista) {
-        this.artista = artista;
     }
 
     public byte[] getImagen() {

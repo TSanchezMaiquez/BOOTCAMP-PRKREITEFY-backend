@@ -6,8 +6,7 @@ public class AlbumDto {
 
     private Long id;
     private String titulo;
-    private Long artistaId;
-    private String artistaNombre;
+
     private byte[] imagen;
 
     public Long getId() {
@@ -26,21 +25,6 @@ public class AlbumDto {
         this.titulo = titulo;
     }
 
-    public Long getArtistaId() {
-        return artistaId;
-    }
-
-    public void setArtistaId(Long artistaId) {
-        this.artistaId = artistaId;
-    }
-
-    public String getArtistaNombre() {
-        return artistaNombre;
-    }
-
-    public void setArtistaNombre(String artistaNombre) {
-        this.artistaNombre = artistaNombre;
-    }
 
     public byte[] getImagen() {
         return imagen;

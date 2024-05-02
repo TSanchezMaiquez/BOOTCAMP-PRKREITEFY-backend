@@ -32,11 +32,7 @@ public class AlbumRestController {
 
         return new ResponseEntity<>(albumes, HttpStatus.OK);
     }
-    @GetMapping(value = "/artistas/{artistaId}/albumes", produces = "application/json")
-    public ResponseEntity<List<AlbumDto>> obtenerTodosLosAlbumesDeArtista(@PathVariable Long artistaId) {
-        List<AlbumDto> albumes = albumService.obtenerTodosLosAlbumDeUnArtista(artistaId);
-        return new ResponseEntity<>(albumes, HttpStatus.OK);
-    }
+
     @GetMapping(value = "/albumes/{albumId}", produces = "application/json")
     public ResponseEntity<AlbumDto> getItemById(@PathVariable Long albumId) {
         Optional<AlbumDto> album = albumService.obtenerAlbumPorId(albumId);

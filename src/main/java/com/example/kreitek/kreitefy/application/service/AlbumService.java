@@ -7,7 +7,6 @@ import java.util.Optional;
 
 public interface AlbumService {
     List<AlbumDto> obtenerTodosLosAlbum();
-    List<AlbumDto> obtenerTodosLosAlbumDeUnArtista(Long autorId);
     Optional<AlbumDto> obtenerAlbumPorId(Long id);
     List<AlbumDto> obtenerTodosLosAlbumPorNombre(String tituloParcial);
 }

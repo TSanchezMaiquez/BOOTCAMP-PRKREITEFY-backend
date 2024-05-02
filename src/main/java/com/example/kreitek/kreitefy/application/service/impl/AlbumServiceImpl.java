@@ -26,11 +26,6 @@ public class AlbumServiceImpl implements AlbumService {
         return albumMapper.toDto(albumPersistence.obtenerTodosLosAlbum());
     }
 
-    @Override
-    @Transactional
-    public List<AlbumDto> obtenerTodosLosAlbumDeUnArtista(Long autorId) {
-        return albumMapper.toDto(albumPersistence.obtenerTodosLosAlbumDeUnAutor(autorId));
-    }
 
     @Override
     @Transactional

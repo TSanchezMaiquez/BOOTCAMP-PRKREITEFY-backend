@@ -16,6 +16,8 @@ public class CancionDto {
     private Date fechaInsercion;
     private Long albumId;
     private String albumTitulo;
+    private Long artistaId;
+    private String artistaNombre;
 
     public Long getId() {
         return id;
@@ -87,5 +89,21 @@ public class CancionDto {
 
     public void setAlbumTitulo(String albumTitulo) {
         this.albumTitulo = albumTitulo;
+    }
+
+    public Long getArtistaId() {
+        return artistaId;
+    }
+
+    public void setArtistaId(Long artistaId) {
+        this.artistaId = artistaId;
+    }
+
+    public String getArtistaNombre() {
+        return artistaNombre;
+    }
+
+    public void setArtistaNombre(String artistaNombre) {
+        this.artistaNombre = artistaNombre;
     }
 }

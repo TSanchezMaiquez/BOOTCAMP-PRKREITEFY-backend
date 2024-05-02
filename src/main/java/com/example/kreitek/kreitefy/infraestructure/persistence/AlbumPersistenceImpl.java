@@ -21,11 +21,6 @@ public class AlbumPersistenceImpl implements AlbumPersistence {
     }
 
     @Override
-    public List<Album> obtenerTodosLosAlbumDeUnAutor(Long autorId) {
-        return albumRepository.findAllByArtistaId(autorId);
-    }
-
-    @Override
     public Optional<Album> obtenerAlbumPorId(Long id) {
         return albumRepository.findById(id);
     }

@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface AlbumRepository extends JpaRepository<Album, Long> {
     List<Album> findBytituloContainsIgnoreCase(String partialName);
-    List<Album> findAllByArtistaId(Long id);
+
 
 }

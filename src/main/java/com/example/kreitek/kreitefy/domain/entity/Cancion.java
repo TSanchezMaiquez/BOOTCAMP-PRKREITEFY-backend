@@ -32,6 +32,9 @@ public class Cancion {
     @ManyToOne
     @JoinColumn(name = "album_id")
     private Album album;
+    @ManyToOne
+    @JoinColumn(name = "artista_id")
+    private Artista artista;
 
     public Long getId() {
         return id;
@@ -95,5 +98,13 @@ public class Cancion {
 
     public void setFechaInsercion(Date fechaInsercion) {
         this.fechaInsercion = fechaInsercion;
+    }
+
+    public Artista getArtista() {
+        return artista;
+    }
+
+    public void setArtista(Artista artista) {
+        this.artista = artista;
     }
 }
