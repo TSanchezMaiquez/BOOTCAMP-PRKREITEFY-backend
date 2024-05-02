@@ -3,6 +3,7 @@ package com.example.kreitek.kreitefy.application.service.impl;
 import com.example.kreitek.kreitefy.application.dto.ArtistaDto;
 import com.example.kreitek.kreitefy.application.mapper.ArtistaMapper;
 import com.example.kreitek.kreitefy.application.service.ArtistaService;
+import com.example.kreitek.kreitefy.domain.entity.Artista;
 import com.example.kreitek.kreitefy.domain.persistencia.ArtistaPersistence;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,5 +38,11 @@ public class ArtistaServiceImpl implements ArtistaService {
     @Transactional
     public List<ArtistaDto> obtenerTodosLosArtistasPorNombre(String nombreParcial) {
         return artistaMapper.toDto(artistaPersistence.obtenerTodosLosArtistasPorNombre(nombreParcial));
+    }
+
+    @Override
+    public ArtistaDto crearArtista(ArtistaDto artistaDTO) {
+        Artista artista = artistaMapper.toEntity(artistaDTO);
+        return artistaMapper.toDto(artistaPersistence.crearArtista(artista));
     }
 }

@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:./kreikekfy;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
+    url: jdbc:h2:./kreitekfy;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
   sql:
     init:
       mode: never

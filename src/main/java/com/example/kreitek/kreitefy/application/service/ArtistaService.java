@@ -9,4 +9,5 @@ public interface ArtistaService {
     List<ArtistaDto> obtenerTodosLosArtistas();
     Optional<ArtistaDto> obtenerArtistaPorId(Long artistaId);
     List<ArtistaDto> obtenerTodosLosArtistasPorNombre(String nombreParcial);
+    ArtistaDto crearArtista(ArtistaDto categoryDTO);
 }

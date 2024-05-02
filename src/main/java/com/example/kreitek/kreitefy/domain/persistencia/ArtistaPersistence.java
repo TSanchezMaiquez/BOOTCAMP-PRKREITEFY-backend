@@ -9,4 +9,5 @@ public interface ArtistaPersistence {
     List<Artista> obtenerTodosLosArtistas();
     Optional<Artista> obtenerArtistaPorId(Long artistaId);
     List<Artista> obtenerTodosLosArtistasPorNombre(String nombreParcial);
+    Artista crearArtista(Artista artista);
 }

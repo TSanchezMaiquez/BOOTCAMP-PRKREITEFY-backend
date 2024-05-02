@@ -30,4 +30,9 @@ public class ArtistaPersistenceImpl implements ArtistaPersistence {
     public List<Artista> obtenerTodosLosArtistasPorNombre(String nombreParcial) {
         return artistaRepository.findByNombreContainsIgnoreCase(nombreParcial);
     }
+
+    @Override
+    public Artista crearArtista(Artista artista) {
+        return artistaRepository.save(artista);
+    }
 }
