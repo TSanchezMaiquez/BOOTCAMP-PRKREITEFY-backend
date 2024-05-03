@@ -9,4 +9,5 @@ public interface AlbumService {
     List<AlbumDto> obtenerTodosLosAlbum();
     Optional<AlbumDto> obtenerAlbumPorId(Long id);
     List<AlbumDto> obtenerTodosLosAlbumPorNombre(String tituloParcial);
+    AlbumDto guardarAlbum(AlbumDto albumDto);
 }

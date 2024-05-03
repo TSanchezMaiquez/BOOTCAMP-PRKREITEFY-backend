@@ -32,8 +32,8 @@ VALUES
     ('How Come You Don''t Call Me', 3.58, 'POP', 4.2, 900000, '2024-04-30', 1, 3);
 INSERT INTO canciones (nombre, duracion, estilo, valoracion, reproducciones, fecha_insercion, album_id, artista_id)
 VALUES
-    ('Bohemian Rhapsody', 5.55, 'ROCK', 4.8, 1500000, '2024-04-30', 2, 1),
-    ('Uptown Funk', 4.31, 'POP', 4.7, 1200000, '2024-04-30', 2, 1),
+    ('Bohemian Rhapsody', 5.55, 'ROCK', 4.8, 1500000, '2024-04-30', 25, 1),
+    ('Uptown Funk', 4.31, 'POP', 4.7, 1200000, '2024-04-30', 25, 1),
     ('Clair de Lune', 5.23, 'CLASICA', 4.9, 900000, '2024-04-30', 3, 2),
     ('Smells Like Teen Spirit', 4.36, 'ROCK', 4.6, 1300000, '2024-04-30', 4, 2),
     ('Shape of You', 3.54, 'POP', 4.8, 1600000, '2024-04-30', 4, 2),

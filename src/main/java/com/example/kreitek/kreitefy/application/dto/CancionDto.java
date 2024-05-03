@@ -18,6 +18,7 @@ public class CancionDto {
     private String albumTitulo;
     private Long artistaId;
     private String artistaNombre;
+    private byte[] albumImagen;
 
     public Long getId() {
         return id;
@@ -105,5 +106,13 @@ public class CancionDto {
 
     public void setArtistaNombre(String artistaNombre) {
         this.artistaNombre = artistaNombre;
+    }
+
+    public byte[] getAlbumImagen() {
+        return albumImagen;
+    }
+
+    public void setAlbumImagen(byte[] albumImagen) {
+        this.albumImagen = albumImagen;
     }
 }

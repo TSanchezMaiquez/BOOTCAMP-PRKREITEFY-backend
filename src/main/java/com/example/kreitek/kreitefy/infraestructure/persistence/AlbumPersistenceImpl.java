@@ -29,4 +29,9 @@ public class AlbumPersistenceImpl implements AlbumPersistence {
     public List<Album> obtenerTodosLosAlbumPorNombre(String tituloParcial) {
         return albumRepository.findBytituloContainsIgnoreCase(tituloParcial);
     }
+
+    @Override
+    public Album crearAlbum(Album album) {
+        return albumRepository.save(album);
+    }
 }

@@ -18,6 +18,7 @@ public interface CancionMapper extends EntityMapper<CancionDto, Cancion>{
     @Override
     @Mapping(source = "album.id", target = "albumId")
     @Mapping(source = "album.titulo", target = "albumTitulo")
+    @Mapping(source = "album.imagen", target = "albumImagen")
     @Mapping(source = "artista.id", target = "artistaId")
     @Mapping(source = "artista.nombre", target = "artistaNombre")
     CancionDto toDto(Cancion entity);

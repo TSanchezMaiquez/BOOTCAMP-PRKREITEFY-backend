@@ -4,10 +4,7 @@ import com.example.kreitek.kreitefy.application.dto.AlbumDto;
 import com.example.kreitek.kreitefy.application.service.AlbumService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -41,5 +38,11 @@ public class AlbumRestController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
+    }
+    @CrossOrigin
+    @PatchMapping(value = "/albumes/{albumId}", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<AlbumDto> actualizarAlbum(@PathVariable Long albumId, @RequestBody AlbumDto albumDto) {
+        albumDto = albumService.guardarAlbum(albumDto);
+        return new ResponseEntity<>(albumDto, HttpStatus.OK);
     }
 }

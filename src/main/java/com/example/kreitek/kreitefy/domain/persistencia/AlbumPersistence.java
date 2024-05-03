@@ -10,4 +10,6 @@ public interface AlbumPersistence {
     List<Album> obtenerTodosLosAlbum();
     Optional<Album> obtenerAlbumPorId(Long id);
     List<Album> obtenerTodosLosAlbumPorNombre(String tituloParcial);
+
+    Album crearAlbum(Album album);
 }

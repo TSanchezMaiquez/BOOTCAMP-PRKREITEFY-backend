@@ -29,10 +29,10 @@ public class Cancion {
     private Double reproducciones;
     @Column(name = "fecha_insercion", nullable = false)
     private Date fechaInsercion;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "album_id")
     private Album album;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "artista_id")
     private Artista artista;
 

@@ -38,4 +38,9 @@ public class AlbumServiceImpl implements AlbumService {
     public List<AlbumDto> obtenerTodosLosAlbumPorNombre(String tituloParcial) {
         return albumMapper.toDto(albumPersistence.obtenerTodosLosAlbumPorNombre(tituloParcial));
     }
+
+    @Override
+    public AlbumDto guardarAlbum(AlbumDto albumDto) {
+        return albumMapper.toDto(albumPersistence.crearAlbum(albumMapper.toEntity(albumDto)));
+    }
 }

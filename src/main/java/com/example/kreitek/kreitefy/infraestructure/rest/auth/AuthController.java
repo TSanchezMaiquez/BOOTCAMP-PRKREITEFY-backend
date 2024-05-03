@@ -26,7 +26,7 @@ public class AuthController {
         this.passwordEncoder = passwordEncoder;
         this.authenticationManager = authenticationManager;
     }
-
+    @CrossOrigin
     @PostMapping(value = "/login")
     public ResponseEntity<AuthResponse> login(@RequestBody LoginDto loginDto) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
@@ -35,7 +35,7 @@ public class AuthController {
         String token = jwtService.generateToken(user);
         return ResponseEntity.ok(new AuthResponse(token));
     }
-
+    @CrossOrigin
     @PostMapping(value = "/register")
     public ResponseEntity<AuthResponse> register(@RequestBody UsuarioDto userDto) {
         // En la base de datos no queremos guardar la contraseña, generamos
