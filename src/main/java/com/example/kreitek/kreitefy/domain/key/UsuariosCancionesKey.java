@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
-public class ValoracionesCancionesKey implements Serializable {
+public class UsuariosCancionesKey implements Serializable {
 
     @Column(name = "usuario_id")
     private String usuarioId;
@@ -15,7 +15,7 @@ public class ValoracionesCancionesKey implements Serializable {
     @Column(name = "cancion_id")
     private Long cancionId;
 
-    public ValoracionesCancionesKey() {
+    public UsuariosCancionesKey() {
     }
 
     public String getUsuarioId() {
@@ -37,7 +37,7 @@ public class ValoracionesCancionesKey implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ValoracionesCancionesKey that)) return false;
+        if (!(o instanceof UsuariosCancionesKey that)) return false;
         return Objects.equals(usuarioId, that.usuarioId) && Objects.equals(cancionId, that.cancionId);
     }
 

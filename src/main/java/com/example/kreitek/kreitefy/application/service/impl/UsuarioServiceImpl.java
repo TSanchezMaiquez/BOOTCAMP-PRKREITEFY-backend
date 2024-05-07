@@ -1,5 +1,6 @@
 package com.example.kreitek.kreitefy.application.service.impl;
 
+import com.example.kreitek.kreitefy.application.dto.ReproduccionCancionDto;
 import com.example.kreitek.kreitefy.application.dto.UsuarioDto;
 import com.example.kreitek.kreitefy.application.dto.ValoracionCancionDto;
 import com.example.kreitek.kreitefy.application.mapper.UsuarioMapper;
@@ -47,6 +48,25 @@ public class UsuarioServiceImpl implements UsuarioService {
         UsuarioDto usuarioDto = obtenerUsuarioPorId(username)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
         return usuarioDto.getValoracionesDeCanciones();
+    }
+
+    @Override
+    public List<ReproduccionCancionDto> anadeReproduccionACancion(String username, ReproduccionCancionDto reproduccionCancionDto) {
+        UsuarioDto usuarioDto = obtenerUsuarioPorId(username)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+        reproduccionCancionDto.setUsuarioId(username);
+        usuarioDto.getReproduccionesDeCanciones().add(reproduccionCancionDto);
+        Usuario usuario = usuarioPersistence.save(usuarioMapper.toEntity(usuarioDto));
+        usuarioDto = usuarioMapper.toDto(usuario);
+        return usuarioDto.getReproduccionesDeCanciones();
+    }
+
+    @Override
+    public List<ReproduccionCancionDto> obtenerReproduccionesCanciones(String username) {
+        UsuarioDto usuarioDto = obtenerUsuarioPorId(username)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        return usuarioDto.getReproduccionesDeCanciones();
     }
 
 

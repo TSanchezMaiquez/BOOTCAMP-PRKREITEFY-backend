@@ -8,7 +8,7 @@ import org.mapstruct.Mapping;
 import java.util.ArrayList;
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {ValoracionCancionMapper.class})
+@Mapper(componentModel = "spring", uses = {ValoracionCancionMapper.class, ReproduccionCancionesMapper.class})
 public interface UsuarioMapper extends EntityMapper<UsuarioDto, Usuario>{
 
    @Override

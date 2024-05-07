@@ -2,7 +2,7 @@ package com.example.kreitek.kreitefy.application.mapper;
 
 import com.example.kreitek.kreitefy.application.dto.ValoracionCancionDto;
 import com.example.kreitek.kreitefy.domain.entity.ValoracionCancion;
-import com.example.kreitek.kreitefy.domain.key.ValoracionesCancionesKey;
+import com.example.kreitek.kreitefy.domain.key.UsuariosCancionesKey;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -22,7 +22,7 @@ public interface ValoracionCancionMapper extends EntityMapper<ValoracionCancionD
     ValoracionCancionDto toDto(ValoracionCancion entity);
 
 
-    default ValoracionCancion fromId(ValoracionesCancionesKey id) {
+    default ValoracionCancion fromId(UsuariosCancionesKey id) {
         if (id == null) return null;
         ValoracionCancion valoracionCancion = new ValoracionCancion();
         valoracionCancion.setId(id);

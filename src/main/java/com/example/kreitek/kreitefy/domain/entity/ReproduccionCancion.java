@@ -1,6 +1,6 @@
 package com.example.kreitek.kreitefy.domain.entity;
 
-import com.example.kreitek.kreitefy.domain.key.ValoracionesCancionesKey;
+import com.example.kreitek.kreitefy.domain.key.UsuariosCancionesKey;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -10,7 +10,7 @@ import java.util.Date;
 @Table(name = "reproduccion_canciones")
 public class ReproduccionCancion {
     @EmbeddedId
-    private ValoracionesCancionesKey id;
+    private UsuariosCancionesKey id;
 
     @ManyToOne
     @MapsId("usuarioId")
@@ -25,11 +25,11 @@ public class ReproduccionCancion {
     private Integer reproducciones;
     private Date fechaDeReproduccion;
 
-    public ValoracionesCancionesKey getId() {
+    public UsuariosCancionesKey getId() {
         return id;
     }
 
-    public void setId(ValoracionesCancionesKey id) {
+    public void setId(UsuariosCancionesKey id) {
         this.id = id;
     }
 

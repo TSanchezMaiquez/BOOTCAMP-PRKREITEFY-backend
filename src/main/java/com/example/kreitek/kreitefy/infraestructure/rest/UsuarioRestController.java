@@ -1,5 +1,6 @@
 package com.example.kreitek.kreitefy.infraestructure.rest;
 
+import com.example.kreitek.kreitefy.application.dto.ReproduccionCancionDto;
 import com.example.kreitek.kreitefy.application.dto.UsuarioDto;
 import com.example.kreitek.kreitefy.application.dto.ValoracionCancionDto;
 import com.example.kreitek.kreitefy.application.service.UsuarioService;
@@ -41,5 +42,21 @@ public class UsuarioRestController {
         List<ValoracionCancionDto> valoracionCancionDtos = usuarioService
                 .obtenervaloracionesCanciones(username);
         return new ResponseEntity<>(valoracionCancionDtos, HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/usuarios/{username}/reproducciones", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<List<ReproduccionCancionDto>> anadeReproduccionACancion(
+            @PathVariable String username,
+            @RequestBody ReproduccionCancionDto reproduccionCancionDto){
+        List<ReproduccionCancionDto> reproduccionCancionDtos = usuarioService
+                .anadeReproduccionACancion(username, reproduccionCancionDto);
+        return new ResponseEntity<>(reproduccionCancionDtos,HttpStatus.OK);
+    }
+    @GetMapping(value = "/usuarios/{username}/reproducciones", produces = "application/json")
+    public ResponseEntity<List<ReproduccionCancionDto>> obtenerReproduccionesDeUsuario
+            (@PathVariable String username){
+        List<ReproduccionCancionDto> reproduccionCancionDtos = usuarioService
+                .obtenerReproduccionesCanciones(username);
+        return new ResponseEntity<>(reproduccionCancionDtos, HttpStatus.OK);
     }
 }

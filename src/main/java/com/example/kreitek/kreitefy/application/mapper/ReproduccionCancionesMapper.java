@@ -2,7 +2,7 @@ package com.example.kreitek.kreitefy.application.mapper;
 
 import com.example.kreitek.kreitefy.application.dto.ReproduccionCancionDto;
 import com.example.kreitek.kreitefy.domain.entity.ReproduccionCancion;
-import com.example.kreitek.kreitefy.domain.key.ValoracionesCancionesKey;
+import com.example.kreitek.kreitefy.domain.key.UsuariosCancionesKey;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -26,7 +26,7 @@ public interface ReproduccionCancionesMapper extends EntityMapper<ReproduccionCa
 
 
 
-  default ReproduccionCancion fromId(ValoracionesCancionesKey id){
+  default ReproduccionCancion fromId(UsuariosCancionesKey id){
       if (id == null) return null;
       ReproduccionCancion reproduccionCancion = new ReproduccionCancion();
       reproduccionCancion.setId(id);

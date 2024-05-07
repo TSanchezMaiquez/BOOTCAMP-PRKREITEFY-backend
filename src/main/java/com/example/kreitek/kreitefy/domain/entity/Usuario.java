@@ -21,6 +21,9 @@ public class Usuario {
 
     @OneToMany( fetch = FetchType.EAGER,  mappedBy = "usuario", cascade = CascadeType.ALL)
     private Set<ValoracionCancion> valoracionesDeCanciones;
+
+    @OneToMany( fetch = FetchType.EAGER,  mappedBy = "usuario", cascade = CascadeType.ALL)
+    private Set<ReproduccionCancion> reproduccionesDeCanciones;
     public String getNombreDeUsuario() {
         return nombreDeUsuario;
     }
@@ -67,5 +70,13 @@ public class Usuario {
 
     public void setValoracionesDeCanciones(Set<ValoracionCancion> valoracionesDeCanciones) {
         this.valoracionesDeCanciones = valoracionesDeCanciones;
+    }
+
+    public Set<ReproduccionCancion> getReproduccionesDeCanciones() {
+        return reproduccionesDeCanciones;
+    }
+
+    public void setReproduccionesDeCanciones(Set<ReproduccionCancion> reproduccionesDeCanciones) {
+        this.reproduccionesDeCanciones = reproduccionesDeCanciones;
     }
 }

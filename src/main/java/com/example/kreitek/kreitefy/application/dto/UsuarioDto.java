@@ -13,6 +13,7 @@ public class UsuarioDto {
     private String email;
     protected Role role;
     private List<ValoracionCancionDto> valoracionesDeCanciones;
+    private List<ReproduccionCancionDto> reproduccionesDeCanciones;
     public UsuarioDto() {
     }
 
@@ -71,4 +72,13 @@ public class UsuarioDto {
     public void setValoracionesDeCanciones(List<ValoracionCancionDto> valoracionesDeCanciones) {
         this.valoracionesDeCanciones = valoracionesDeCanciones;
     }
+
+    public List<ReproduccionCancionDto> getReproduccionesDeCanciones() {
+        return reproduccionesDeCanciones;
+    }
+
+    public void setReproduccionesDeCanciones(List<ReproduccionCancionDto> reproduccionesDeCanciones) {
+        this.reproduccionesDeCanciones = reproduccionesDeCanciones;
+    }
+
 }

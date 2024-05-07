@@ -1,6 +1,6 @@
 package com.example.kreitek.kreitefy.domain.entity;
 
-import com.example.kreitek.kreitefy.domain.key.ValoracionesCancionesKey;
+import com.example.kreitek.kreitefy.domain.key.UsuariosCancionesKey;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
 
@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Positive;
 @Table(name = "valoraciones_canciones")
 public class ValoracionCancion {
     @EmbeddedId
-    private ValoracionesCancionesKey id;
+    private UsuariosCancionesKey id;
 
     @ManyToOne
     @MapsId("usuarioId")
@@ -23,11 +23,11 @@ public class ValoracionCancion {
     @Positive
     private Double valoracion;
 
-    public ValoracionesCancionesKey getId() {
+    public UsuariosCancionesKey getId() {
         return id;
     }
 
-    public void setId(ValoracionesCancionesKey id) {
+    public void setId(UsuariosCancionesKey id) {
         this.id = id;
     }
 
