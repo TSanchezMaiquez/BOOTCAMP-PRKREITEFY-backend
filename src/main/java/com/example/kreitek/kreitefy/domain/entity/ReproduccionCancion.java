@@ -1,5 +1,6 @@
 package com.example.kreitek.kreitefy.domain.entity;
 
+import com.example.kreitek.kreitefy.domain.key.ReproducionesCancionesKey;
 import com.example.kreitek.kreitefy.domain.key.UsuariosCancionesKey;
 import jakarta.persistence.*;
 
@@ -7,29 +8,29 @@ import java.util.Date;
 
 
 @Entity
-@Table(name = "reproduccion_canciones")
-public class ReproduccionCancion {
-    @EmbeddedId
-    private UsuariosCancionesKey id;
+    @Table(name = "reproduccion_canciones")
+    public class ReproduccionCancion {
+        @EmbeddedId
+        private ReproducionesCancionesKey id;
 
-    @ManyToOne
-    @MapsId("usuarioId")
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+        @ManyToOne
+        @MapsId("usuarioId")
+        @JoinColumn(name = "usuario_id")
+        private Usuario usuario;
 
-    @ManyToOne
-    @MapsId("cancionId")
-    @JoinColumn(name = "cancion_id")
-    private Cancion cancion;
+        @ManyToOne
+        @MapsId("cancionId")
+        @JoinColumn(name = "cancion_id")
+        private Cancion cancion;
 
-    private Integer reproducciones;
-    private Date fechaDeReproduccion;
+        private Integer reproducciones;
 
-    public UsuariosCancionesKey getId() {
+
+    public ReproducionesCancionesKey getId() {
         return id;
     }
 
-    public void setId(UsuariosCancionesKey id) {
+    public void setId(ReproducionesCancionesKey id) {
         this.id = id;
     }
 
@@ -57,11 +58,5 @@ public class ReproduccionCancion {
         this.reproducciones = reproducciones;
     }
 
-    public Date getFechaDeReproduccion() {
-        return fechaDeReproduccion;
-    }
 
-    public void setFechaDeReproduccion(Date fechaDeReproduccion) {
-        this.fechaDeReproduccion = fechaDeReproduccion;
-    }
 }

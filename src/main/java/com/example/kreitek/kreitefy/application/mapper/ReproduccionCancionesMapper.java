@@ -2,6 +2,7 @@ package com.example.kreitek.kreitefy.application.mapper;
 
 import com.example.kreitek.kreitefy.application.dto.ReproduccionCancionDto;
 import com.example.kreitek.kreitefy.domain.entity.ReproduccionCancion;
+import com.example.kreitek.kreitefy.domain.key.ReproducionesCancionesKey;
 import com.example.kreitek.kreitefy.domain.key.UsuariosCancionesKey;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -14,19 +15,19 @@ public interface ReproduccionCancionesMapper extends EntityMapper<ReproduccionCa
     @Mapping(source = "usuarioId", target = "usuario")
     @Mapping(source = "cancionId", target = "id.cancionId")
     @Mapping(source = "cancionId", target = "cancion")
-    @Mapping(source = "fechaDeReproduccion", target = "fechaDeReproduccion")
+    @Mapping(source = "fechaDeReproduccion", target = "id.fechaDeReproduccion")
     ReproduccionCancion toEntity(ReproduccionCancionDto dto);
 
     @Override
     @Mapping(source = "usuario.nombreDeUsuario", target = "usuarioId")
     @Mapping(source = "cancion.id", target = "cancionId")
     @Mapping(source = "cancion.nombre", target = "cancionNombre")
-    @Mapping(source = "fechaDeReproduccion", target = "fechaDeReproduccion")
+    @Mapping(source = "id.fechaDeReproduccion", target = "fechaDeReproduccion")
     ReproduccionCancionDto toDto(ReproduccionCancion entity);
 
 
 
-  default ReproduccionCancion fromId(UsuariosCancionesKey id){
+  default ReproduccionCancion fromId(ReproducionesCancionesKey id){
       if (id == null) return null;
       ReproduccionCancion reproduccionCancion = new ReproduccionCancion();
       reproduccionCancion.setId(id);

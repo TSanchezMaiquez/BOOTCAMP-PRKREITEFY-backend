@@ -35,11 +35,35 @@ public class UsuarioServiceImpl implements UsuarioService {
         UsuarioDto usuarioDto = obtenerUsuarioPorId(usuarioId)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
-        valoracionCancionDto.setUsuarioId(usuarioId);
-        usuarioDto.getValoracionesDeCanciones().add(valoracionCancionDto);
+        List<ValoracionCancionDto> valoraciones = usuarioDto.getValoracionesDeCanciones();
+        manejarValoracionExistente(valoraciones, usuarioId, valoracionCancionDto);
+
+
         Usuario usuario = usuarioPersistence.save(usuarioMapper.toEntity(usuarioDto));
         usuarioDto = usuarioMapper.toDto(usuario);
+
         return usuarioDto.getValoracionesDeCanciones();
+    }
+
+    private void manejarValoracionExistente(List<ValoracionCancionDto> valoraciones, String usuarioId, ValoracionCancionDto nuevaValoracion) {
+        Optional<ValoracionCancionDto> existingValoracion = valoraciones.stream()
+                .filter(v -> v.getCancionId().equals(nuevaValoracion.getCancionId()))
+                .findFirst();
+
+        if (existingValoracion.isPresent()) {
+            actualizarValoracionExistente(existingValoracion.get(), nuevaValoracion);
+        } else {
+            agregarNuevaValoracion(valoraciones, usuarioId, nuevaValoracion);
+        }
+    }
+
+    private void actualizarValoracionExistente(ValoracionCancionDto valoracionExistente, ValoracionCancionDto nuevaValoracion) {
+        valoracionExistente.setValoracion(nuevaValoracion.getValoracion());
+    }
+
+    private void agregarNuevaValoracion(List<ValoracionCancionDto> valoraciones, String usuarioId, ValoracionCancionDto nuevaValoracion) {
+        nuevaValoracion.setUsuarioId(usuarioId);
+        valoraciones.add(nuevaValoracion);
     }
 
     @Override

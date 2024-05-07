@@ -43,3 +43,23 @@ VALUES
     ('Yesterday', 2.04, 'POP', 3.6, 485, '2024-04-27', 4, 5),
     ('Don''t Stop Believin'', 4.10, 'CLASICA', 3.8, 941, '2024-04-15', 4, 6),
     ('Livin'' on a Prayer', 4.09, 'ROCK', 3.7, 712, '2024-04-12', 5, 7); [42000-224]
+2024-05-07 15:45:28.987167+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "delete [*]table REPRODUCCION_CANCIONES"; se esperaba "identifier"
+Syntax error in SQL statement "delete [*]table REPRODUCCION_CANCIONES"; expected "identifier"; SQL statement:
+delete table REPRODUCCION_CANCIONES [42001-224]
+2024-05-07 15:48:05.026783+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SHOW [*]CREATE TABLE REPRODUCCION_CANCIONES"
+Syntax error in SQL statement "SHOW [*]CREATE TABLE REPRODUCCION_CANCIONES"; SQL statement:
+SHOW CREATE TABLE REPRODUCCION_CANCIONES [42000-224]
+2024-05-07 15:48:32.873767+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]DESCRIBE REPRODUCCION_CANCIONES"; se esperaba "DELETE, DROP"
+Syntax error in SQL statement "[*]DESCRIBE REPRODUCCION_CANCIONES"; expected "DELETE, DROP"; SQL statement:
+DESCRIBE REPRODUCCION_CANCIONES [42001-224]
+2024-05-07 15:48:38.677063+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]sp_help 'REPRODUCCION_CANCIONES'"; se esperaba "SAVEPOINT, SCRIPT, SHUTDOWN"
+Syntax error in SQL statement "[*]sp_help 'REPRODUCCION_CANCIONES'"; expected "SAVEPOINT, SCRIPT, SHUTDOWN"; SQL statement:
+sp_help 'REPRODUCCION_CANCIONES' [42001-224]
+2024-05-07 15:50:24.067253+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]REPRODUCCION_CANCIONES"; se esperaba "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"
+Syntax error in SQL statement "[*]REPRODUCCION_CANCIONES"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"; SQL statement:
+REPRODUCCION_CANCIONES [42001-224]
