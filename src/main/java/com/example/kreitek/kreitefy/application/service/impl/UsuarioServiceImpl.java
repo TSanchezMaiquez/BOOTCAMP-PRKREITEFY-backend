@@ -41,5 +41,13 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarioDto.getValoracionesDeCanciones();
     }
 
+    @Override
+    @Transactional
+    public List<ValoracionCancionDto> obtenervaloracionesCanciones(String username) {
+        UsuarioDto usuarioDto = obtenerUsuarioPorId(username)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        return usuarioDto.getValoracionesDeCanciones();
+    }
+
 
 }

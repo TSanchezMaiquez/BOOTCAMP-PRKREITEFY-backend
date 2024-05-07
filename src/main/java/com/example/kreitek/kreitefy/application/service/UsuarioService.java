@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface UsuarioService {
     Optional<UsuarioDto> obtenerUsuarioPorId(String id);
     List<ValoracionCancionDto> anadeValoracionACancion(String usuarioId, ValoracionCancionDto valoracionCancionDto);
+    List<ValoracionCancionDto> obtenervaloracionesCanciones(String username);
+
 }

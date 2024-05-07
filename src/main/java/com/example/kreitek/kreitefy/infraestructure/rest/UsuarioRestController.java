@@ -27,12 +27,19 @@ public class UsuarioRestController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-   @PatchMapping(value = "/usuarios/{username}/canciones", produces = "application/json", consumes = "application/json")
+   @PutMapping(value = "/usuarios/{username}/canciones", produces = "application/json", consumes = "application/json")
     public ResponseEntity<List<ValoracionCancionDto>> anadeValoracionACancion(
             @PathVariable String username,
             @RequestBody ValoracionCancionDto valoracionCancionDto){
         List<ValoracionCancionDto> valoracionCancionDtos = usuarioService
                 .anadeValoracionACancion(username, valoracionCancionDto);
         return new ResponseEntity<>(valoracionCancionDtos,HttpStatus.OK);
+    }
+    @GetMapping(value = "/usuarios/{username}/canciones", produces = "application/json")
+    public ResponseEntity<List<ValoracionCancionDto>> obtenerValoracionesDeUsuario
+            (@PathVariable String username){
+        List<ValoracionCancionDto> valoracionCancionDtos = usuarioService
+                .obtenervaloracionesCanciones(username);
+        return new ResponseEntity<>(valoracionCancionDtos, HttpStatus.OK);
     }
 }
