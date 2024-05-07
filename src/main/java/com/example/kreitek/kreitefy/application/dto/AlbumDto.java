@@ -2,7 +2,9 @@ package com.example.kreitek.kreitefy.application.dto;
 
 import com.example.kreitek.kreitefy.domain.entity.Artista;
 
-public class AlbumDto {
+import java.io.Serializable;
+
+public class AlbumDto implements Serializable {
 
     private Long id;
     private String titulo;

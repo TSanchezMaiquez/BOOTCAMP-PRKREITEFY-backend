@@ -2,6 +2,8 @@ package com.example.kreitek.kreitefy.application.dto;
 
 import com.example.kreitek.kreitefy.domain.type.Role;
 
+import java.util.List;
+
 public class UsuarioDto {
 
 
@@ -10,6 +12,7 @@ public class UsuarioDto {
     private String apellidos;
     private String email;
     protected Role role;
+    private List<ValoracionCancionDto> valoracionesDeCanciones;
     public UsuarioDto() {
     }
 
@@ -59,5 +62,13 @@ public class UsuarioDto {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+   public List<ValoracionCancionDto> getValoracionesDeCanciones() {
+        return valoracionesDeCanciones;
+    }
+
+    public void setValoracionesDeCanciones(List<ValoracionCancionDto> valoracionesDeCanciones) {
+        this.valoracionesDeCanciones = valoracionesDeCanciones;
     }
 }

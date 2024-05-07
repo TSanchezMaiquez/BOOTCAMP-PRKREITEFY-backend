@@ -39,7 +39,7 @@ private final CancionService cancionService;
     @GetMapping(value = "/canciones", produces = "application/json")
     public ResponseEntity<Page<CancionDto>> obtenerCancionesByCriteriaPaged(
             @RequestParam(value = "filter", required = false) String filter, Pageable pageable) {
-        Page<CancionDto> canciones = cancionService.getItemsByCriteriaStringPaged(filter, pageable);
+        Page<CancionDto> canciones = cancionService.getICancionesByCriteriaStringPaged(pageable, filter);
         return new ResponseEntity<Page<CancionDto>>(canciones, HttpStatus.OK);
     }
 }

@@ -10,6 +10,6 @@ import java.util.Optional;
 public interface CancionService {
     List<CancionDto> obtenerTodasLasCancionesDeUnAlbum(Long albumId);
     Optional<CancionDto> obtenerCancionPorId(Long id);
-    Page<CancionDto> getItemsByCriteriaStringPaged(String filter, Pageable pageable);
+    Page<CancionDto> getICancionesByCriteriaStringPaged(Pageable pageable, String filter);
 
 }

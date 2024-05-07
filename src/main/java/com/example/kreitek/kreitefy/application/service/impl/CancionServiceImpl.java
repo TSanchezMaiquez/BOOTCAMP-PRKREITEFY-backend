@@ -38,7 +38,7 @@ public class CancionServiceImpl implements CancionService {
 
     @Override
     @Transactional
-    public Page<CancionDto> getItemsByCriteriaStringPaged(String filter, Pageable pageable) {
+    public Page<CancionDto> getICancionesByCriteriaStringPaged(Pageable pageable, String filter) {
         Page<Cancion> cancionPage = cancionPersistence.findAll(pageable, filter);
         return  cancionPage.map(cancionMapper::toDto);
     }

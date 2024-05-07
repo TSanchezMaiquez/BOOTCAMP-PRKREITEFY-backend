@@ -1,7 +1,9 @@
 package com.example.kreitek.kreitefy.application.dto;
 
 
-public class ArtistaDto {
+import java.io.Serializable;
+
+public class ArtistaDto implements Serializable {
 
     private Integer id;
     private String nombre;

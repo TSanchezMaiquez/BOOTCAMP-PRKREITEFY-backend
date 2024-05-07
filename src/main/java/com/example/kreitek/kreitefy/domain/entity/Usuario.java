@@ -3,6 +3,8 @@ package com.example.kreitek.kreitefy.domain.entity;
 import com.example.kreitek.kreitefy.domain.type.Role;
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 public class Usuario {
 
@@ -17,6 +19,8 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @OneToMany( fetch = FetchType.EAGER,  mappedBy = "usuario", cascade = CascadeType.ALL)
+    private Set<ValoracionCancion> valoracionesDeCanciones;
     public String getNombreDeUsuario() {
         return nombreDeUsuario;
     }
@@ -55,5 +59,13 @@ public class Usuario {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Set<ValoracionCancion> getValoracionesDeCanciones() {
+        return valoracionesDeCanciones;
+    }
+
+    public void setValoracionesDeCanciones(Set<ValoracionCancion> valoracionesDeCanciones) {
+        this.valoracionesDeCanciones = valoracionesDeCanciones;
     }
 }

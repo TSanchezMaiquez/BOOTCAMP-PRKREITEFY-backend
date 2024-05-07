@@ -1,0 +1,45 @@
+2024-05-03 18:06:19.154615+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO canciones (nombre, duracion, estilo, valoracion, reproducciones, fecha_insercion, album_id, artista_id)\000d\000aVALUES\000d\000a    ('Sweet Child o' [*]Mine', 5.56, 'ROCK', 3.5, 526, '2024-04-06', 2, 6),\000d\000a    ('Billie Jean', 4.54, 'POP', 3.6, 754, '2024-04-08', 2, 7),\000d\000a    ('Hotel California', 6.30, 'ROCK', 3.9, 653, '2024-04-10', 2, 8),\000d\000a    ('Imagine', 3.02, 'POP', 3.8, 358, '2024-04-11', 3, 5),\000d\000a    ('Boogie Wonderland', 4.48, 'CLASICA', 3.4, 995, '2024-04-09', 3, 6),\000d\000a    ('Stairway to Heaven', 8.02, 'ROCK', 3.9, 1025, '2024-04-29', 3, 7),\000d\000a    ('Every Breath You Take', 4.13, 'POP', 3.7, 265, '2024-04-30', 4, 8),\000d\000a    ('Yesterday', 2.04, 'POP', 3.6, 485, '2024-04-27', 4, 5),\000d\000a    ('Don''t Stop Believin'', 4.10, 'CLASICA', 3.8, 941, '2024-04-15', 4, 6),\000d\000a    ('Livin'' on a Prayer', 4.09, 'ROCK', 3.7, 712, '2024-04-12', 5, 7)"; se esperaba "[, ., ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"
+Syntax error in SQL statement "INSERT INTO canciones (nombre, duracion, estilo, valoracion, reproducciones, fecha_insercion, album_id, artista_id)\000d\000aVALUES\000d\000a    ('Sweet Child o' [*]Mine', 5.56, 'ROCK', 3.5, 526, '2024-04-06', 2, 6),\000d\000a    ('Billie Jean', 4.54, 'POP', 3.6, 754, '2024-04-08', 2, 7),\000d\000a    ('Hotel California', 6.30, 'ROCK', 3.9, 653, '2024-04-10', 2, 8),\000d\000a    ('Imagine', 3.02, 'POP', 3.8, 358, '2024-04-11', 3, 5),\000d\000a    ('Boogie Wonderland', 4.48, 'CLASICA', 3.4, 995, '2024-04-09', 3, 6),\000d\000a    ('Stairway to Heaven', 8.02, 'ROCK', 3.9, 1025, '2024-04-29', 3, 7),\000d\000a    ('Every Breath You Take', 4.13, 'POP', 3.7, 265, '2024-04-30', 4, 8),\000d\000a    ('Yesterday', 2.04, 'POP', 3.6, 485, '2024-04-27', 4, 5),\000d\000a    ('Don''t Stop Believin'', 4.10, 'CLASICA', 3.8, 941, '2024-04-15', 4, 6),\000d\000a    ('Livin'' on a Prayer', 4.09, 'ROCK', 3.7, 712, '2024-04-12', 5, 7)"; expected "[, ., ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
+INSERT INTO canciones (nombre, duracion, estilo, valoracion, reproducciones, fecha_insercion, album_id, artista_id)
+VALUES
+    ('Sweet Child o' Mine', 5.56, 'ROCK', 3.5, 526, '2024-04-06', 2, 6),
+    ('Billie Jean', 4.54, 'POP', 3.6, 754, '2024-04-08', 2, 7),
+    ('Hotel California', 6.30, 'ROCK', 3.9, 653, '2024-04-10', 2, 8),
+    ('Imagine', 3.02, 'POP', 3.8, 358, '2024-04-11', 3, 5),
+    ('Boogie Wonderland', 4.48, 'CLASICA', 3.4, 995, '2024-04-09', 3, 6),
+    ('Stairway to Heaven', 8.02, 'ROCK', 3.9, 1025, '2024-04-29', 3, 7),
+    ('Every Breath You Take', 4.13, 'POP', 3.7, 265, '2024-04-30', 4, 8),
+    ('Yesterday', 2.04, 'POP', 3.6, 485, '2024-04-27', 4, 5),
+    ('Don''t Stop Believin'', 4.10, 'CLASICA', 3.8, 941, '2024-04-15', 4, 6),
+    ('Livin'' on a Prayer', 4.09, 'ROCK', 3.7, 712, '2024-04-12', 5, 7) [42001-224]
+2024-05-03 18:07:24.157068+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO canciones (nombre, duracion, estilo, valoracion, reproducciones, fecha_insercion, album_id, artista_id)\000d\000aVALUES\000d\000a    ('Sweet Child o Mine, 5.56, '[*]ROCK', 3.5, 526, '2024-04-06', 2, 6),\000d\000a    ('Billie Jean', 4.54, 'POP', 3.6, 754, '2024-04-08', 2, 7),\000d\000a    ('Hotel California', 6.30, 'ROCK', 3.9, 653, '2024-04-10', 2, 8),\000d\000a    ('Imagine', 3.02, 'POP', 3.8, 358, '2024-04-11', 3, 5),\000d\000a    ('Boogie Wonderland', 4.48, 'CLASICA', 3.4, 995, '2024-04-09', 3, 6),\000d\000a    ('Stairway to Heaven', 8.02, 'ROCK', 3.9, 1025, '2024-04-29', 3, 7),\000d\000a    ('Every Breath You Take', 4.13, 'POP', 3.7, 265, '2024-04-30', 4, 8),\000d\000a    ('Yesterday', 2.04, 'POP', 3.6, 485, '2024-04-27', 4, 5),\000d\000a    ('Don''t Stop Believin'', 4.10, 'CLASICA', 3.8, 941, '2024-04-15', 4, 6),\000d\000a    ('Livin'' on a Prayer', 4.09, 'ROCK', 3.7, 712, '2024-04-12', 5, 7)"; se esperaba "[, ., ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"
+Syntax error in SQL statement "INSERT INTO canciones (nombre, duracion, estilo, valoracion, reproducciones, fecha_insercion, album_id, artista_id)\000d\000aVALUES\000d\000a    ('Sweet Child o Mine, 5.56, '[*]ROCK', 3.5, 526, '2024-04-06', 2, 6),\000d\000a    ('Billie Jean', 4.54, 'POP', 3.6, 754, '2024-04-08', 2, 7),\000d\000a    ('Hotel California', 6.30, 'ROCK', 3.9, 653, '2024-04-10', 2, 8),\000d\000a    ('Imagine', 3.02, 'POP', 3.8, 358, '2024-04-11', 3, 5),\000d\000a    ('Boogie Wonderland', 4.48, 'CLASICA', 3.4, 995, '2024-04-09', 3, 6),\000d\000a    ('Stairway to Heaven', 8.02, 'ROCK', 3.9, 1025, '2024-04-29', 3, 7),\000d\000a    ('Every Breath You Take', 4.13, 'POP', 3.7, 265, '2024-04-30', 4, 8),\000d\000a    ('Yesterday', 2.04, 'POP', 3.6, 485, '2024-04-27', 4, 5),\000d\000a    ('Don''t Stop Believin'', 4.10, 'CLASICA', 3.8, 941, '2024-04-15', 4, 6),\000d\000a    ('Livin'' on a Prayer', 4.09, 'ROCK', 3.7, 712, '2024-04-12', 5, 7)"; expected "[, ., ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
+INSERT INTO canciones (nombre, duracion, estilo, valoracion, reproducciones, fecha_insercion, album_id, artista_id)
+VALUES
+    ('Sweet Child o Mine, 5.56, 'ROCK', 3.5, 526, '2024-04-06', 2, 6),
+    ('Billie Jean', 4.54, 'POP', 3.6, 754, '2024-04-08', 2, 7),
+    ('Hotel California', 6.30, 'ROCK', 3.9, 653, '2024-04-10', 2, 8),
+    ('Imagine', 3.02, 'POP', 3.8, 358, '2024-04-11', 3, 5),
+    ('Boogie Wonderland', 4.48, 'CLASICA', 3.4, 995, '2024-04-09', 3, 6),
+    ('Stairway to Heaven', 8.02, 'ROCK', 3.9, 1025, '2024-04-29', 3, 7),
+    ('Every Breath You Take', 4.13, 'POP', 3.7, 265, '2024-04-30', 4, 8),
+    ('Yesterday', 2.04, 'POP', 3.6, 485, '2024-04-27', 4, 5),
+    ('Don''t Stop Believin'', 4.10, 'CLASICA', 3.8, 941, '2024-04-15', 4, 6),
+    ('Livin'' on a Prayer', 4.09, 'ROCK', 3.7, 712, '2024-04-12', 5, 7) [42001-224]
+2024-05-03 18:08:19.580549+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO canciones (nombre, duracion, estilo, valoracion, reproducciones, fecha_insercion, album_id, artista_id)\000d\000aVALUES\000d\000a    ('Sweet Child o Mine', 5.56, 'ROCK', 3.5, 526, '2024-04-06', 2, 6),\000d\000a    ('Billie Jean', 4.54, 'POP', 3.6, 754, '2024-04-08', 2, 7),\000d\000a    ('Hotel California', 6.30, 'ROCK', 3.9, 653, '2024-04-10', 2, 8),\000d\000a    ('Imagine', 3.02, 'POP', 3.8, 358, '2024-04-11', 3, 5),\000d\000a    ('Boogie Wonderland', 4.48, 'CLASICA', 3.4, 995, '2024-04-09', 3, 6),\000d\000a    ('Stairway to Heaven', 8.02, 'ROCK', 3.9, 1025, '2024-04-29', 3, 7),\000d\000a    ('Every Breath You Take', 4.13, 'POP', 3.7, 265, '2024-04-30', 4, 8),\000d\000a    ('Yesterday', 2.04, 'POP', 3.6, 485, '2024-04-27', 4, 5),\000d\000a    ('Don''t Stop Believin'', 4.10, 'CLASICA', 3.8, 941, '2024-04-15', 4, 6),\000d\000a    ('Livin'' on a Prayer', 4.09, 'ROCK', 3.7, 712, '2024-04-12[*]', 5, 7);"
+Syntax error in SQL statement "INSERT INTO canciones (nombre, duracion, estilo, valoracion, reproducciones, fecha_insercion, album_id, artista_id)\000d\000aVALUES\000d\000a    ('Sweet Child o Mine', 5.56, 'ROCK', 3.5, 526, '2024-04-06', 2, 6),\000d\000a    ('Billie Jean', 4.54, 'POP', 3.6, 754, '2024-04-08', 2, 7),\000d\000a    ('Hotel California', 6.30, 'ROCK', 3.9, 653, '2024-04-10', 2, 8),\000d\000a    ('Imagine', 3.02, 'POP', 3.8, 358, '2024-04-11', 3, 5),\000d\000a    ('Boogie Wonderland', 4.48, 'CLASICA', 3.4, 995, '2024-04-09', 3, 6),\000d\000a    ('Stairway to Heaven', 8.02, 'ROCK', 3.9, 1025, '2024-04-29', 3, 7),\000d\000a    ('Every Breath You Take', 4.13, 'POP', 3.7, 265, '2024-04-30', 4, 8),\000d\000a    ('Yesterday', 2.04, 'POP', 3.6, 485, '2024-04-27', 4, 5),\000d\000a    ('Don''t Stop Believin'', 4.10, 'CLASICA', 3.8, 941, '2024-04-15', 4, 6),\000d\000a    ('Livin'' on a Prayer', 4.09, 'ROCK', 3.7, 712, '2024-04-12[*]', 5, 7);"; SQL statement:
+INSERT INTO canciones (nombre, duracion, estilo, valoracion, reproducciones, fecha_insercion, album_id, artista_id)
+VALUES
+    ('Sweet Child o Mine', 5.56, 'ROCK', 3.5, 526, '2024-04-06', 2, 6),
+    ('Billie Jean', 4.54, 'POP', 3.6, 754, '2024-04-08', 2, 7),
+    ('Hotel California', 6.30, 'ROCK', 3.9, 653, '2024-04-10', 2, 8),
+    ('Imagine', 3.02, 'POP', 3.8, 358, '2024-04-11', 3, 5),
+    ('Boogie Wonderland', 4.48, 'CLASICA', 3.4, 995, '2024-04-09', 3, 6),
+    ('Stairway to Heaven', 8.02, 'ROCK', 3.9, 1025, '2024-04-29', 3, 7),
+    ('Every Breath You Take', 4.13, 'POP', 3.7, 265, '2024-04-30', 4, 8),
+    ('Yesterday', 2.04, 'POP', 3.6, 485, '2024-04-27', 4, 5),
+    ('Don''t Stop Believin'', 4.10, 'CLASICA', 3.8, 941, '2024-04-15', 4, 6),
+    ('Livin'' on a Prayer', 4.09, 'ROCK', 3.7, 712, '2024-04-12', 5, 7); [42000-224]

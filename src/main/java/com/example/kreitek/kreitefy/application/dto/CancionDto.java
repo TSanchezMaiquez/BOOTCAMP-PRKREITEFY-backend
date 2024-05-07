@@ -4,9 +4,10 @@ import com.example.kreitek.kreitefy.domain.entity.Album;
 import com.example.kreitek.kreitefy.domain.type.Estilo;
 
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class CancionDto {
+public class CancionDto implements Serializable {
     private Long id;
     private String nombre;
     private Double duracion;

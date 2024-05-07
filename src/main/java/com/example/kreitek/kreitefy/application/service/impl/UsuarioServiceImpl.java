@@ -1,6 +1,7 @@
 package com.example.kreitek.kreitefy.application.service.impl;
 
 import com.example.kreitek.kreitefy.application.dto.UsuarioDto;
+import com.example.kreitek.kreitefy.application.dto.ValoracionCancionDto;
 import com.example.kreitek.kreitefy.application.mapper.UsuarioMapper;
 import com.example.kreitek.kreitefy.application.service.UsuarioService;
 import com.example.kreitek.kreitefy.domain.entity.Usuario;
@@ -8,6 +9,7 @@ import com.example.kreitek.kreitefy.domain.persistencia.UsuarioPersistence;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -24,6 +26,19 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Transactional
     public Optional<UsuarioDto> obtenerUsuarioPorId(String id) {
         return usuarioPersistence.obtenerUsuarioPorId(id).map(usuarioMapper::toDto);
+    }
+
+    @Override
+    @Transactional
+    public List<ValoracionCancionDto> anadeValoracionACancion(String usuarioId, ValoracionCancionDto valoracionCancionDto) {
+        UsuarioDto usuarioDto = obtenerUsuarioPorId(usuarioId)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+        valoracionCancionDto.setUsuarioId(usuarioId);
+        usuarioDto.getValoracionesDeCanciones().add(valoracionCancionDto);
+        Usuario usuario = usuarioPersistence.save(usuarioMapper.toEntity(usuarioDto));
+        usuarioDto = usuarioMapper.toDto(usuario);
+        return usuarioDto.getValoracionesDeCanciones();
     }
 
 
