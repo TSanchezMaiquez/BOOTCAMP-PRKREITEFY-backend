@@ -35,7 +35,8 @@ public class Cancion {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "artista_id")
     private Artista artista;
-
+    private String artistaNombre;
+    private String albumTitulo;
     public Long getId() {
         return id;
     }
@@ -106,5 +107,20 @@ public class Cancion {
 
     public void setArtista(Artista artista) {
         this.artista = artista;
+    }
+
+    public String getArtistaNombre() {
+        return artistaNombre;
+    }
+    public void setArtistaNombre(String artistaNombre) {
+        this.artistaNombre = artistaNombre;
+    }
+
+    public String getAlbumTitulo() {
+        return albumTitulo;
+    }
+
+    public void setAlbumTitulo(String albumTitulo) {
+        this.albumTitulo = albumTitulo;
     }
 }
