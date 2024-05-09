@@ -4,6 +4,8 @@ import com.example.kreitek.kreitefy.application.dto.ReproduccionCancionDto;
 import com.example.kreitek.kreitefy.application.dto.UsuarioDto;
 import com.example.kreitek.kreitefy.application.dto.ValoracionCancionDto;
 import com.example.kreitek.kreitefy.application.service.UsuarioService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -64,4 +66,14 @@ public class UsuarioRestController {
         usuarioDto = usuarioService.actualizarUsuario(usuarioDto);
         return new ResponseEntity<>(usuarioDto, HttpStatus.OK);
     }
+    @GetMapping(value = "/usuarios/reproducciones", produces = "application/json")
+    public ResponseEntity<Page<ReproduccionCancionDto>> obtenerReproduccionesDeUsuario
+            (@RequestParam(value = "filter", required = false) String filter, Pageable pageable){
+        Page<ReproduccionCancionDto> reproduccionCancionDtos = usuarioService
+                .obtenerReproduccionesCancionesByCriteriaStringPaged(pageable, filter);
+        return new ResponseEntity<Page<ReproduccionCancionDto>>(reproduccionCancionDtos, HttpStatus.OK);
+    }
+
+
+
 }

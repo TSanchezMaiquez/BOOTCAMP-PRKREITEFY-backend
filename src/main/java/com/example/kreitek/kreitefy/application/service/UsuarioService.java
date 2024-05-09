@@ -4,6 +4,8 @@ import com.example.kreitek.kreitefy.application.dto.AlbumDto;
 import com.example.kreitek.kreitefy.application.dto.ReproduccionCancionDto;
 import com.example.kreitek.kreitefy.application.dto.UsuarioDto;
 import com.example.kreitek.kreitefy.application.dto.ValoracionCancionDto;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,4 +18,6 @@ public interface UsuarioService {
     List<ReproduccionCancionDto>obtenerReproduccionesCanciones(String username);
 
     UsuarioDto actualizarUsuario(UsuarioDto usuarioDto);
+
+    Page<ReproduccionCancionDto> obtenerReproduccionesCancionesByCriteriaStringPaged(Pageable pageable, String filter);
 }

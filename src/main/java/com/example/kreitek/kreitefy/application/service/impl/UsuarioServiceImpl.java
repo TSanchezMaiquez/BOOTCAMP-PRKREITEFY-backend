@@ -3,10 +3,15 @@ package com.example.kreitek.kreitefy.application.service.impl;
 import com.example.kreitek.kreitefy.application.dto.ReproduccionCancionDto;
 import com.example.kreitek.kreitefy.application.dto.UsuarioDto;
 import com.example.kreitek.kreitefy.application.dto.ValoracionCancionDto;
+import com.example.kreitek.kreitefy.application.mapper.ReproduccionCancionesMapper;
 import com.example.kreitek.kreitefy.application.mapper.UsuarioMapper;
 import com.example.kreitek.kreitefy.application.service.UsuarioService;
+import com.example.kreitek.kreitefy.domain.entity.ReproduccionCancion;
 import com.example.kreitek.kreitefy.domain.entity.Usuario;
+import com.example.kreitek.kreitefy.domain.persistencia.ReproduccionCancionPersistence;
 import com.example.kreitek.kreitefy.domain.persistencia.UsuarioPersistence;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,10 +22,14 @@ import java.util.Optional;
 public class UsuarioServiceImpl implements UsuarioService {
     private final UsuarioPersistence usuarioPersistence;
     private final UsuarioMapper usuarioMapper;
+    private final ReproduccionCancionPersistence reproduccionCancionPersistence;
+    private final ReproduccionCancionesMapper reproduccionCancionesMapper;
 
-    public UsuarioServiceImpl(UsuarioPersistence usuarioPersistence, UsuarioMapper usuarioMapper) {
+    public UsuarioServiceImpl(UsuarioPersistence usuarioPersistence, UsuarioMapper usuarioMapper, ReproduccionCancionPersistence reproduccionCancionPersistence, ReproduccionCancionesMapper reproduccionCancionesMapper) {
         this.usuarioPersistence = usuarioPersistence;
         this.usuarioMapper = usuarioMapper;
+        this.reproduccionCancionPersistence = reproduccionCancionPersistence;
+        this.reproduccionCancionesMapper = reproduccionCancionesMapper;
     }
 
     @Override
@@ -96,6 +105,13 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public UsuarioDto actualizarUsuario(UsuarioDto usuarioDto) {
         return usuarioMapper.toDto(usuarioPersistence.actualizarUsuario(usuarioMapper.toEntity(usuarioDto)));
+    }
+
+    @Override
+    public Page<ReproduccionCancionDto> obtenerReproduccionesCancionesByCriteriaStringPaged(Pageable pageable, String filter) {
+        Page<ReproduccionCancion> reproduccionPage = reproduccionCancionPersistence.findAll(pageable, filter);
+        return  reproduccionPage.map(reproduccionCancionesMapper::toDto);
+
     }
 
 
