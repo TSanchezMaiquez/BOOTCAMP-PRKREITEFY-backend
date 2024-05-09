@@ -28,4 +28,9 @@ public class UsuarioPersistenceImpl implements UsuarioPersistence {
     public Optional<Usuario> find(String username) {
         return usuarioRepository.findById(username);
     }
+
+    @Override
+    public Usuario actualizarUsuario(Usuario usuario) {
+        return usuarioRepository.save(usuario);
+    }
 }

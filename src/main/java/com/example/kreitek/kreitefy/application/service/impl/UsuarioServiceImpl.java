@@ -93,5 +93,10 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarioDto.getReproduccionesDeCanciones();
     }
 
+    @Override
+    public UsuarioDto actualizarUsuario(UsuarioDto usuarioDto) {
+        return usuarioMapper.toDto(usuarioPersistence.actualizarUsuario(usuarioMapper.toEntity(usuarioDto)));
+    }
+
 
 }

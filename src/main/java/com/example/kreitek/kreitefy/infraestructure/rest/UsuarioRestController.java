@@ -59,4 +59,9 @@ public class UsuarioRestController {
                 .obtenerReproduccionesCanciones(username);
         return new ResponseEntity<>(reproduccionCancionDtos, HttpStatus.OK);
     }
+    @PatchMapping(value = "/usuarios/{nombreDeUsuario}", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<UsuarioDto> actualizarUsuario(@PathVariable String nombreDeUsuario, @RequestBody UsuarioDto usuarioDto) {
+        usuarioDto = usuarioService.actualizarUsuario(usuarioDto);
+        return new ResponseEntity<>(usuarioDto, HttpStatus.OK);
+    }
 }

@@ -9,4 +9,6 @@ public interface UsuarioPersistence {
     Optional<Usuario> obtenerUsuarioPorId(String id);
     Usuario save(Usuario user);
     Optional<Usuario> find(String username);
+
+    Usuario actualizarUsuario(Usuario usuario);
 }

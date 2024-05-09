@@ -24,6 +24,8 @@ import java.util.Date;
         private Cancion cancion;
 
         private Integer reproducciones;
+        private String cancionNombre;
+        private String estilo;
 
 
     public ReproducionesCancionesKey getId() {
@@ -58,5 +60,19 @@ import java.util.Date;
         this.reproducciones = reproducciones;
     }
 
+    public String getCancionNombre() {
+        return cancionNombre;
+    }
 
+    public void setCancionNombre(String cancionNombre) {
+        this.cancionNombre = cancionNombre;
+    }
+
+    public String getEstilo() {
+        return estilo;
+    }
+
+    public void setEstilo(String estilo) {
+        this.estilo = estilo;
+    }
 }

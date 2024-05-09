@@ -22,6 +22,7 @@ public interface ReproduccionCancionesMapper extends EntityMapper<ReproduccionCa
     @Mapping(source = "usuario.nombreDeUsuario", target = "usuarioId")
     @Mapping(source = "cancion.id", target = "cancionId")
     @Mapping(source = "cancion.nombre", target = "cancionNombre")
+    @Mapping(source = "cancion.estilo", target = "estilo")
     @Mapping(source = "id.fechaDeReproduccion", target = "fechaDeReproduccion")
     ReproduccionCancionDto toDto(ReproduccionCancion entity);
 

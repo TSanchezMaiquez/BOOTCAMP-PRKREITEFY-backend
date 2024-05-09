@@ -12,6 +12,7 @@ public class ReproduccionCancionDto implements Serializable {
 
     private Integer reproducciones;
     private Date fechaDeReproduccion;
+    private String estilo;
 
     public String getUsuarioId() {
         return usuarioId;
@@ -51,6 +52,14 @@ public class ReproduccionCancionDto implements Serializable {
 
     public void setFechaDeReproduccion(Date fechaDeReproduccion) {
         this.fechaDeReproduccion = fechaDeReproduccion;
+    }
+
+    public String getEstilo() {
+        return estilo;
+    }
+
+    public void setEstilo(String estilo) {
+        this.estilo = estilo;
     }
 
     @Override

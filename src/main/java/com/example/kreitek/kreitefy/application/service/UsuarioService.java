@@ -14,4 +14,6 @@ public interface UsuarioService {
     List<ValoracionCancionDto> obtenervaloracionesCanciones(String username);
     List<ReproduccionCancionDto>anadeReproduccionACancion(String username, ReproduccionCancionDto reproduccionCancionDto);
     List<ReproduccionCancionDto>obtenerReproduccionesCanciones(String username);
+
+    UsuarioDto actualizarUsuario(UsuarioDto usuarioDto);
 }
