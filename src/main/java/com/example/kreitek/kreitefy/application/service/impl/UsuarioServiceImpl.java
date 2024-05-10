@@ -87,7 +87,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public List<ReproduccionCancionDto> anadeReproduccionACancion(String username, ReproduccionCancionDto reproduccionCancionDto) throws UsuarioNotFoundException {
         UsuarioDto usuarioDto = obtenerUsuarioPorId(username)
                 .orElseThrow(() -> new UsuarioNotFoundException("Usuario no encontrado"));
