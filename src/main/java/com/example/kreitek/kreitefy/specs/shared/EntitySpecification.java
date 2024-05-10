@@ -62,6 +62,7 @@ public abstract class EntitySpecification<T> {
                         "%" + criteria.getValue().toString().toLowerCase()));
             } else if (criteria.getOperation().equals(SearchOperation.IN)) {
                 predicates.add(builder.in(root.get(criteria.getKey())).value(criteria.getValue()));
+
             } else if (criteria.getOperation().equals(SearchOperation.NOT_IN)) {
                 predicates.add(builder.not(root.get(criteria.getKey())).in(criteria.getValue()));
             }

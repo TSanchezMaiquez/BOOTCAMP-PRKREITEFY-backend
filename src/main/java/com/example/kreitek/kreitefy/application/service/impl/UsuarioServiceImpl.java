@@ -10,6 +10,7 @@ import com.example.kreitek.kreitefy.domain.entity.ReproduccionCancion;
 import com.example.kreitek.kreitefy.domain.entity.Usuario;
 import com.example.kreitek.kreitefy.domain.persistencia.ReproduccionCancionPersistence;
 import com.example.kreitek.kreitefy.domain.persistencia.UsuarioPersistence;
+import com.example.kreitek.kreitefy.infraestructure.excepciones.UsuarioNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public Optional<UsuarioDto> obtenerUsuarioPorId(String id) {
         return usuarioPersistence.obtenerUsuarioPorId(id).map(usuarioMapper::toDto);
     }
@@ -76,17 +77,18 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    @Transactional
-    public List<ValoracionCancionDto> obtenervaloracionesCanciones(String username) {
+    @Transactional(readOnly = true)
+    public List<ValoracionCancionDto> obtenervaloracionesCanciones(String username) throws UsuarioNotFoundException {
         UsuarioDto usuarioDto = obtenerUsuarioPorId(username)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+                .orElseThrow(()  -> new UsuarioNotFoundException("Usuario no encontrado"));
         return usuarioDto.getValoracionesDeCanciones();
     }
 
     @Override
-    public List<ReproduccionCancionDto> anadeReproduccionACancion(String username, ReproduccionCancionDto reproduccionCancionDto) {
+    @Transactional(readOnly = true)
+    public List<ReproduccionCancionDto> anadeReproduccionACancion(String username, ReproduccionCancionDto reproduccionCancionDto) throws UsuarioNotFoundException {
         UsuarioDto usuarioDto = obtenerUsuarioPorId(username)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+                .orElseThrow(() -> new UsuarioNotFoundException("Usuario no encontrado"));
 
         reproduccionCancionDto.setUsuarioId(username);
         usuarioDto.getReproduccionesDeCanciones().add(reproduccionCancionDto);
@@ -96,18 +98,21 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public List<ReproduccionCancionDto> obtenerReproduccionesCanciones(String username) {
+    @Transactional(readOnly = true)
+    public List<ReproduccionCancionDto> obtenerReproduccionesCanciones(String username) throws UsuarioNotFoundException {
         UsuarioDto usuarioDto = obtenerUsuarioPorId(username)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+                .orElseThrow(() -> new UsuarioNotFoundException("Usuario no encontrado"));
         return usuarioDto.getReproduccionesDeCanciones();
     }
 
     @Override
+    @Transactional
     public UsuarioDto actualizarUsuario(UsuarioDto usuarioDto) {
         return usuarioMapper.toDto(usuarioPersistence.actualizarUsuario(usuarioMapper.toEntity(usuarioDto)));
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Page<ReproduccionCancionDto> obtenerReproduccionesCancionesByCriteriaStringPaged(Pageable pageable, String filter) {
         Page<ReproduccionCancion> reproduccionPage = reproduccionCancionPersistence.findAll(pageable, filter);
         return  reproduccionPage.map(reproduccionCancionesMapper::toDto);

@@ -21,25 +21,26 @@ public class AlbumServiceImpl implements AlbumService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<AlbumDto> obtenerTodosLosAlbum() {
         return albumMapper.toDto(albumPersistence.obtenerTodosLosAlbum());
     }
 
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public Optional<AlbumDto> obtenerAlbumPorId(Long id) {
         return albumPersistence.obtenerAlbumPorId(id).map(albumMapper::toDto);
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<AlbumDto> obtenerTodosLosAlbumPorNombre(String tituloParcial) {
         return albumMapper.toDto(albumPersistence.obtenerTodosLosAlbumPorNombre(tituloParcial));
     }
 
     @Override
+    @Transactional
     public AlbumDto guardarAlbum(AlbumDto albumDto) {
         return albumMapper.toDto(albumPersistence.crearAlbum(albumMapper.toEntity(albumDto)));
     }

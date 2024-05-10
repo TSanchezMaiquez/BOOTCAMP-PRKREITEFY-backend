@@ -23,24 +23,25 @@ public class ArtistaServiceImpl implements ArtistaService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<ArtistaDto> obtenerTodosLosArtistas() {
         return artistaMapper.toDto(artistaPersistence.obtenerTodosLosArtistas());
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public Optional<ArtistaDto> obtenerArtistaPorId(Long artistaId) {
         return artistaPersistence.obtenerArtistaPorId(artistaId).map(artistaMapper::toDto);
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<ArtistaDto> obtenerTodosLosArtistasPorNombre(String nombreParcial) {
         return artistaMapper.toDto(artistaPersistence.obtenerTodosLosArtistasPorNombre(nombreParcial));
     }
 
     @Override
+    @Transactional
     public ArtistaDto crearArtista(ArtistaDto artistaDTO) {
         Artista artista = artistaMapper.toEntity(artistaDTO);
         return artistaMapper.toDto(artistaPersistence.crearArtista(artista));

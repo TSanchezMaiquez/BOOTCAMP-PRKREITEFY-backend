@@ -4,6 +4,7 @@ import com.example.kreitek.kreitefy.application.dto.ReproduccionCancionDto;
 import com.example.kreitek.kreitefy.application.dto.UsuarioDto;
 import com.example.kreitek.kreitefy.application.dto.ValoracionCancionDto;
 import com.example.kreitek.kreitefy.application.service.UsuarioService;
+import com.example.kreitek.kreitefy.infraestructure.excepciones.UsuarioNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -40,7 +41,7 @@ public class UsuarioRestController {
     }
     @GetMapping(value = "/usuarios/{username}/canciones", produces = "application/json")
     public ResponseEntity<List<ValoracionCancionDto>> obtenerValoracionesDeUsuario
-            (@PathVariable String username){
+            (@PathVariable String username) throws UsuarioNotFoundException {
         List<ValoracionCancionDto> valoracionCancionDtos = usuarioService
                 .obtenervaloracionesCanciones(username);
         return new ResponseEntity<>(valoracionCancionDtos, HttpStatus.OK);
@@ -49,14 +50,14 @@ public class UsuarioRestController {
     @PutMapping(value = "/usuarios/{username}/reproducciones", produces = "application/json", consumes = "application/json")
     public ResponseEntity<List<ReproduccionCancionDto>> anadeReproduccionACancion(
             @PathVariable String username,
-            @RequestBody ReproduccionCancionDto reproduccionCancionDto){
+            @RequestBody ReproduccionCancionDto reproduccionCancionDto) throws UsuarioNotFoundException {
         List<ReproduccionCancionDto> reproduccionCancionDtos = usuarioService
                 .anadeReproduccionACancion(username, reproduccionCancionDto);
         return new ResponseEntity<>(reproduccionCancionDtos,HttpStatus.OK);
     }
     @GetMapping(value = "/usuarios/{username}/reproducciones", produces = "application/json")
     public ResponseEntity<List<ReproduccionCancionDto>> obtenerReproduccionesDeUsuario
-            (@PathVariable String username){
+            (@PathVariable String username) throws UsuarioNotFoundException {
         List<ReproduccionCancionDto> reproduccionCancionDtos = usuarioService
                 .obtenerReproduccionesCanciones(username);
         return new ResponseEntity<>(reproduccionCancionDtos, HttpStatus.OK);

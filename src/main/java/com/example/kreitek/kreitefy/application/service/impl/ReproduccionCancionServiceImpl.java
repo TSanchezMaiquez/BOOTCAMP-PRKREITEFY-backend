@@ -22,7 +22,7 @@ public class ReproduccionCancionServiceImpl implements ReproduccionCancionServic
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public Page<ReproduccionCancionDto> getICancionesByCriteriaStringPaged(Pageable pageable, String filter) {
         Page<ReproduccionCancion> cancionPage = reproduccionCancionPersistence.findAll(pageable, filter);
         return  cancionPage.map(reproduccionCancionesMapper::toDto);

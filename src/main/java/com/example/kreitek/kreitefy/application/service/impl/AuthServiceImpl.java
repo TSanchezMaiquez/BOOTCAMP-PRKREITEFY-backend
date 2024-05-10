@@ -7,6 +7,7 @@ import com.example.kreitek.kreitefy.application.service.AuthService;
 import com.example.kreitek.kreitefy.domain.entity.Usuario;
 import com.example.kreitek.kreitefy.domain.persistencia.UsuarioPersistence;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -19,13 +20,16 @@ public class AuthServiceImpl implements AuthService {
         this.userPersistence = userPersistence;
         this.userMapper = userMapper;
     }
-
+    @Override
+    @Transactional
     public UsuarioDto register(UsuarioDto userDto) {
         Usuario user = userMapper.toEntity(userDto);
         return userMapper.toDto(userPersistence.save(user));
     }
 
-    @Override public Optional<UsuarioDto> getUser(String username) {
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<UsuarioDto> getUser(String username) {
         Optional<Usuario> user = userPersistence.find(username);
         if (user.isEmpty()) {
             return Optional.empty();

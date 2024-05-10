@@ -25,19 +25,19 @@ public class CancionServiceImpl implements CancionService {
 
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<CancionDto> obtenerTodasLasCancionesDeUnAlbum(Long albumId) {
         return cancionMapper.toDto(cancionPersistence.obtenerTodasLasCancionesDeUnAlbum(albumId));
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public Optional<CancionDto> obtenerCancionPorId(Long id) {
         return cancionPersistence.obtenerCancionPorId(id).map(cancionMapper::toDto);
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public Page<CancionDto> getICancionesByCriteriaStringPaged(Pageable pageable, String filter) {
         Page<Cancion> cancionPage = cancionPersistence.findAll(pageable, filter);
         return  cancionPage.map(cancionMapper::toDto);

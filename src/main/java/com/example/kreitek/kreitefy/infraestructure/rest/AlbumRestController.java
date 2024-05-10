@@ -39,7 +39,7 @@ public class AlbumRestController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
     }
-    @CrossOrigin
+
     @PatchMapping(value = "/albumes/{albumId}", produces = "application/json", consumes = "application/json")
     public ResponseEntity<AlbumDto> actualizarAlbum(@PathVariable Long albumId, @RequestBody AlbumDto albumDto) {
         albumDto = albumService.guardarAlbum(albumDto);
