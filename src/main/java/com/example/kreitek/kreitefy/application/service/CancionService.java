@@ -12,4 +12,5 @@ public interface CancionService {
     Optional<CancionDto> obtenerCancionPorId(Long id);
     Page<CancionDto> getICancionesByCriteriaStringPaged(Pageable pageable, String filter);
 
+    CancionDto actualizarCancion(CancionDto cancionDto);
 }

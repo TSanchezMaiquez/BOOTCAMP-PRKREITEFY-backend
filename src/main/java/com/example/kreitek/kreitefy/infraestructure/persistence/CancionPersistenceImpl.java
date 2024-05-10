@@ -45,5 +45,10 @@ public class CancionPersistenceImpl implements CancionPersistence {
         return cancionRepository.findAll(specification, pageable);
     }
 
+    @Override
+    public Cancion actualizarCancion(Cancion cancion) {
+        return cancionRepository.save(cancion);
+    }
+
 
 }

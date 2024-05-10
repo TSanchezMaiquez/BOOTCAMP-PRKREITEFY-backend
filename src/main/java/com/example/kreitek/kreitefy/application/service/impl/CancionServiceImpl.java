@@ -42,4 +42,9 @@ public class CancionServiceImpl implements CancionService {
         Page<Cancion> cancionPage = cancionPersistence.findAll(pageable, filter);
         return  cancionPage.map(cancionMapper::toDto);
     }
+
+    @Override
+    public CancionDto actualizarCancion(CancionDto cancionDto) {
+        return cancionMapper.toDto(cancionPersistence.actualizarCancion(cancionMapper.toEntity(cancionDto)));
+    }
 }

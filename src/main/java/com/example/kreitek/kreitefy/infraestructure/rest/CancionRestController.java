@@ -1,16 +1,14 @@
 package com.example.kreitek.kreitefy.infraestructure.rest;
 
 import com.example.kreitek.kreitefy.application.dto.CancionDto;
+import com.example.kreitek.kreitefy.application.dto.UsuarioDto;
 import com.example.kreitek.kreitefy.application.service.CancionService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -41,5 +39,11 @@ private final CancionService cancionService;
             @RequestParam(value = "filter", required = false) String filter, Pageable pageable) {
         Page<CancionDto> canciones = cancionService.getICancionesByCriteriaStringPaged(pageable, filter);
         return new ResponseEntity<Page<CancionDto>>(canciones, HttpStatus.OK);
+    }
+
+    @PatchMapping(value = "/canciones/{id}", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<CancionDto> actualizarCancion(@PathVariable Long id, @RequestBody CancionDto cancionDto) {
+        cancionDto = cancionService.actualizarCancion(cancionDto);
+        return new ResponseEntity<>(cancionDto, HttpStatus.OK);
     }
 }

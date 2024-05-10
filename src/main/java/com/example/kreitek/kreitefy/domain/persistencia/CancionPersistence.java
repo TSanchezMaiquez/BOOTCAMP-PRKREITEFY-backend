@@ -14,4 +14,6 @@ public interface CancionPersistence {
     Optional<Cancion> obtenerCancionPorId(Long id);
     List<Cancion> obtenerTodasLasCancionesPorNombre(String nombreParcial);
     Page<Cancion> findAll(Pageable pageable, String filter);
+
+    Cancion actualizarCancion(Cancion cancion);
 }
